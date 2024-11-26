@@ -29,7 +29,7 @@ load_dotenv()
 import os
 
 # Set up Streamlit and load API key
-st.set_page_config(page_title="Chatbot", layout="wide")
+st.set_page_config(page_title=None, page_icon=None, layout="centered", initial_sidebar_state="auto", menu_items=None)
 api_key = st.text_input("enter your openai API key",type="password",key="api_key_input")
 
 
