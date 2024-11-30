@@ -39,7 +39,7 @@ def get_vector_store(text_chunks):
     vector_store.save_local("faiss_index")
 
 # Process user input and generate response
-def user_input(user_question,api_key):   
+def user_input(user_question):   
     lm = dspy.LM('openai/gpt-4o-mini',api_key=api_key)
     dspy.configure(lm=lm)
     qa = dspy.Predict('question: str -> response: str')
@@ -50,7 +50,7 @@ def user_input(user_question,api_key):
 def main():
     st.header("Bot App")
     user_question = st.text_input("Ask a question from PDF files", key="user_question")
-    if user_question and api_key:
+    if user_question:
         user_input(user_question)
 
     with st.sidebar:
